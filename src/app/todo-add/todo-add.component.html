@@ -1,0 +1,17 @@
+<input
+    type="text"
+    maxlength="12"
+    id="taskText"
+    placeholder="New Task..."
+    onkeydown="if (event.keyCode == 13)
+                        document.getElementById('add').click()"
+    #addedText
+  />
+  <button
+    id="add"
+    class="button add-button"
+    type="button"
+    (click)="addTask(addedText.value)"
+  >
+    Add New Task
+  </button>

@@ -17,7 +17,7 @@ describe('AppComponent', () => {
   it(`should have the 'practice-angular' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.addTask).toEqual('practice-angular');
+    expect(app.onTodoAdded).toEqual('practice-angular');
   });
 
   it('should render title', () => {

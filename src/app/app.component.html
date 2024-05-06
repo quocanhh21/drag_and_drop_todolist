@@ -3,23 +3,7 @@
 </header>
 
 <div class="add-task-container">
-  <input
-    type="text"
-    maxlength="12"
-    id="taskText"
-    placeholder="New Task..."
-    onkeydown="if (event.keyCode == 13)
-                        document.getElementById('add').click()"
-    #addedText
-  />
-  <button
-    id="add"
-    class="button add-button"
-    type="button"
-    (click)="addTask(addedText.value)"
-  >
-    Add New Task
-  </button>
+  <app-todo-add (newTaskEvent)="onTodoAdded($event)"></app-todo-add>
 </div>
 
 <div class="main-container">
@@ -72,15 +56,14 @@
         <h4>Trash</h4>
       </div>
       <ul class="task-list" id="trash">
-        <li class="task">
-          <p>Interviews</p>
-        </li>
-        <li class="task">
-          <p>Research</p>
-        </li>
+      <app-todo-delete 
+      *ngFor="let item of trashTodoList"
+      [trashTodoList]="item"
+      >        
+      </app-todo-delete>
       </ul>
       <div class="column-button">
-        <button class="button delete-button" onclick="emptyTrash()">
+        <button class="button delete-button" (click)="emptyTrash()">
           Delete
         </button>
       </div>
